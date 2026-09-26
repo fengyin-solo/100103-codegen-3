@@ -10,6 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import settings
 from app.routers import ROUTERS
+from app.services.machine import MachineService
 from app.store import store
 
 app = FastAPI(title="市政道路桥梁养护管理平台", version="1.0.0")
@@ -24,6 +25,12 @@ app.add_middleware(
 
 for module in ROUTERS:
     app.include_router(module.router)
+
+
+@app.on_event("startup")
+def reapply_inspection_rules() -> None:
+    """年检规则上线：既有机械数据按新口径重新标一遍。"""
+    MachineService().reapply_all()
 
 
 @app.get("/api/health")
