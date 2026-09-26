@@ -33,3 +33,9 @@ body { margin: 0; background: #f6f8fb; color: #1f2937; }
 .link { border: none; background: none; color: var(--brand); cursor: pointer; padding: 0; }
 .page-foot { display: flex; justify-content: space-between; margin-top: 8px; font-size: 12px; color: var(--muted); }
 .error-text { color: #b42318; }
+.create-bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; margin-bottom: 12px; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; }
+.tag { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 12px; white-space: nowrap; }
+.tag.due { background: #fef3c7; color: #92400e; }
+.tag.expired { background: #fee2e2; color: #b91c1c; }
+.tag.ok { background: #dcfce7; color: #15803d; }
+.tag.muted { background: #e2e8f0; color: #475569; }
